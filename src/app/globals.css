@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-outfit), sans-serif;
+  
+  --color-brand-blue: #00f0ff;
+  --color-brand-red: #ff1e56;
+  --color-brand-dark: #030303;
+  --color-brand-gray-light: #f5f5f7;
+  --color-brand-gray-dark: #0f0f12;
+  --color-brand-gray-card: rgba(18, 18, 22, 0.65);
+  
+  --animate-pulse-slow: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-float-medium: float 5s ease-in-out infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-brand-dark);
+    color: #ffffff;
+  }
+  
+  body {
+    background-color: var(--color-brand-dark);
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #070709;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f1f2e;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-blue);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+/* Custom radial glows */
+.glow-blue {
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.glow-red {
+  background: radial-gradient(circle, rgba(255, 30, 86, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--color-brand-gray-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Text clipping gradients */
+.text-gradient-cyan-white {
+  background: linear-gradient(135deg, #ffffff 40%, var(--color-brand-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-red-blue {
+  background: linear-gradient(135deg, var(--color-brand-red) 0%, var(--color-brand-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hide default video player UI elements if required, styling ranges */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-brand-red);
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--color-brand-red);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-brand-red);
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--color-brand-red);
+}

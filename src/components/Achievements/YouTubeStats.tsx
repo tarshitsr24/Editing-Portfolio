@@ -54,8 +54,7 @@ export default function YouTubeStats({ onOpenVideo }: YouTubeStatsProps) {
 
   return (
     <section id="youtube" className="relative py-24 md:py-32 bg-black overflow-hidden border-t border-b border-white/5">
-      {/* Background glow graphics */}
-      <div className="absolute top-1/4 right-0 w-[40vw] h-[40vw] glow-red rounded-full pointer-events-none -z-10 opacity-30 animate-pulse-slow"></div>
+      {/* Background glow removed for cleaner look */}
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
@@ -82,73 +81,56 @@ export default function YouTubeStats({ onOpenVideo }: YouTubeStatsProps) {
               </p>
             </motion.div>
 
-            {/* Giant Subscriber Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, type: "spring" }}
-              className="w-full relative group mb-8"
-            >
-              {/* Glow border */}
-              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-red-600 to-brand-red opacity-30 blur-md group-hover:opacity-50 transition-opacity duration-300"></div>
-              
-              <div className="relative p-6 sm:p-8 rounded-2xl glass-panel border border-white/10 bg-gradient-to-br from-red-950/20 to-black/80 flex flex-col sm:flex-row items-center sm:justify-between gap-6">
-                <div className="flex items-center gap-5">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden border border-white/20 shadow-lg shrink-0">
-                    <Image
-                      src="/images/logo.png"
-                      alt="Tarshit Editz Logo"
-                      fill
-                      className="object-cover"
-                      sizes="64px"
-                    />
+            {/* Unified Stat Grid */}
+            <div className="w-full relative group mb-8">
+              <div className="absolute -inset-1.5 rounded-2xl bg-white opacity-5 blur-md group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="relative p-8 rounded-2xl bg-[#0A0A0C] border border-white/10 flex flex-col gap-8 shadow-xl">
+                
+                {/* Header Profile / CTA */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-6 border-b border-white/10">
+                  <div className="flex items-center gap-4">
+                    <div className="relative w-14 h-14 rounded-full overflow-hidden border border-white/20">
+                      <Image
+                        src="/images/logo.png"
+                        alt="Tarshit Editz Logo"
+                        fill
+                        className="object-cover"
+                        sizes="56px"
+                      />
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-xl font-display font-bold text-white">Tarshit Editz</h3>
+                      <p className="text-xs text-white/50">Official YouTube Channel</p>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <h3 className="text-2xl sm:text-3xl font-display font-black text-white tracking-tight">
-                      {subCount.toLocaleString()}+ SUBSCRIBERS
-                    </h3>
-                    <p className="text-xs sm:text-sm font-semibold text-brand-red uppercase tracking-wider mt-0.5">
-                      & GROWING EVERY DAY
-                    </p>
+                  <a
+                    href="https://www.youtube.com/@tarshiteditz/shorts"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2.5 bg-white text-black hover:bg-white/90 font-bold rounded-full text-xs tracking-wider uppercase transition-colors duration-200 flex items-center gap-1.5"
+                  >
+                    <span>Subscribe</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+
+                {/* Grid Stats */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10 text-center">
+                  <div className="pt-4 sm:pt-0 flex flex-col items-center">
+                    <h4 className="text-3xl font-display font-black text-white">{subCount.toLocaleString()}+</h4>
+                    <p className="text-xs text-white/50 mt-1 uppercase tracking-widest">Subscribers</p>
+                  </div>
+                  <div className="pt-4 sm:pt-0 flex flex-col items-center">
+                    <h4 className="text-3xl font-display font-black text-white">Millions</h4>
+                    <p className="text-xs text-white/50 mt-1 uppercase tracking-widest">Total Views</p>
+                  </div>
+                  <div className="pt-4 sm:pt-0 flex flex-col items-center">
+                    <h4 className="text-3xl font-display font-black text-white">100+</h4>
+                    <p className="text-xs text-white/50 mt-1 uppercase tracking-widest">Videos</p>
                   </div>
                 </div>
-                <a
-                  href="https://www.youtube.com/@tarshiteditz/shorts"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-2.5 bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg text-xs tracking-wider uppercase transition-colors duration-200 flex items-center gap-1.5 cursor-pointer shadow-lg shadow-red-600/20 shrink-0"
-                >
-                  <span>Subscribe</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </motion.div>
 
-            {/* Stat Cards Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full">
-              
-              {/* Subs Stats */}
-              <div className="p-5 rounded-xl bg-white/5 border border-white/10 text-left">
-                <Users className="w-5 h-5 text-brand-blue mb-3" />
-                <h4 className="text-2xl font-display font-black text-white">11K+</h4>
-                <p className="text-xs text-white/50 mt-1 uppercase font-semibold tracking-wider">Subscribers</p>
               </div>
-
-              {/* Views Stats */}
-              <div className="p-5 rounded-xl bg-white/5 border border-white/10 text-left">
-                <Eye className="w-5 h-5 text-brand-red mb-3" />
-                <h4 className="text-2xl font-display font-black text-white">Millions</h4>
-                <p className="text-xs text-white/50 mt-1 uppercase font-semibold tracking-wider">Total Views</p>
-              </div>
-
-              {/* Videos Stats */}
-              <div className="p-5 rounded-xl bg-white/5 border border-white/10 text-left col-span-2 sm:col-span-1">
-                <Video className="w-5 h-5 text-emerald-400 mb-3" />
-                <h4 className="text-2xl font-display font-black text-white">Hundreds</h4>
-                <p className="text-xs text-white/50 mt-1 uppercase font-semibold tracking-wider">Videos Published</p>
-              </div>
-
             </div>
           </div>
 

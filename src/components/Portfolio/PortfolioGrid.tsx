@@ -58,9 +58,7 @@ export default function PortfolioGrid({ onOpenVideo }: PortfolioGridProps) {
 
   return (
     <section id="portfolio" className="relative py-24 md:py-32 bg-brand-dark overflow-hidden">
-      {/* Background radial glows */}
-      <div className="absolute top-1/3 left-0 w-[35vw] h-[35vw] glow-blue rounded-full pointer-events-none -z-10 opacity-25"></div>
-      <div className="absolute bottom-1/3 right-0 w-[35vw] h-[35vw] glow-red rounded-full pointer-events-none -z-10 opacity-25"></div>
+      {/* Background radial glows removed to reduce clutter */}
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
@@ -83,7 +81,7 @@ export default function PortfolioGrid({ onOpenVideo }: PortfolioGridProps) {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? "bg-brand-blue text-brand-dark shadow-lg shadow-brand-blue/15"
+                    ? "bg-brand-blue text-brand-dark shadow-lg shadow-white/10"
                     : "bg-white/5 text-white/60 hover:text-white border border-white/5 hover:bg-white/10"
                 }`}
               >
@@ -101,6 +99,7 @@ export default function PortfolioGrid({ onOpenVideo }: PortfolioGridProps) {
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => {
               const isYT = project.videoUrl.includes("youtube.com") || project.videoUrl.includes("youtu.be");
+              const isShort = project.videoUrl.includes("shorts");
               let ytEmbedUrl = "";
               if (isYT) {
                 let videoId = "";
@@ -115,6 +114,8 @@ export default function PortfolioGrid({ onOpenVideo }: PortfolioGridProps) {
                 ytEmbedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&mute=1&modestbranding=1&rel=0`;
               }
 
+              const aspectClass = isShort ? "aspect-[9/16] sm:aspect-video" : "aspect-video";
+
               return (
                 <motion.div
                   layout
@@ -126,7 +127,7 @@ export default function PortfolioGrid({ onOpenVideo }: PortfolioGridProps) {
                   className="relative group rounded-xl overflow-hidden glass-panel border border-white/10 flex flex-col justify-between shadow-xl"
                 >
                   {/* Video / Embed Layer */}
-                  <div className="relative aspect-video overflow-hidden">
+                  <div className={`relative ${aspectClass} overflow-hidden bg-black flex items-center justify-center`}>
                     {isYT ? (
                       <iframe
                         src={ytEmbedUrl}

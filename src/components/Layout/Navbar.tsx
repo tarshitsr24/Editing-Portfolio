@@ -127,7 +127,7 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick("#contact");
               }}
-              className="group relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 overflow-hidden flex items-center gap-2 border border-brand-blue/50 text-white bg-transparent hover:border-brand-blue shadow-[0_0_15px_rgba(0,240,255,0.15)] hover:shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:scale-102 cursor-pointer"
+              className="group relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 overflow-hidden flex items-center gap-2 border border-white/50 text-white bg-transparent hover:bg-white hover:text-black hover:scale-102 cursor-pointer"
             >
               <span>Let's Edit</span>
               <Send className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -182,7 +182,7 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNavClick("#contact");
                 }}
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-red to-brand-blue font-bold text-center text-white hover:brightness-110 transition-all cursor-pointer shadow-lg shadow-brand-red/10"
+                className="w-full py-3.5 rounded-full bg-black border border-white/20 font-bold text-center text-white hover:bg-white hover:text-black transition-all cursor-pointer shadow-lg shadow-white/5"
               >
                 Get In Touch
               </a>

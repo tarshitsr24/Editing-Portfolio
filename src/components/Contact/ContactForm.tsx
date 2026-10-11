@@ -101,8 +101,7 @@ export default function ContactForm() {
 
   return (
     <section id="contact" className="relative py-24 md:py-32 bg-brand-dark overflow-hidden">
-      {/* Background Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55vw] h-[55vw] glow-blue rounded-full pointer-events-none -z-10 opacity-20"></div>
+      {/* Background Glows removed for cleaner look */}
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
 
@@ -156,10 +155,7 @@ export default function ContactForm() {
           {/* Right Column: Contact Card */}
           <div className="lg:col-span-7 w-full">
             <div className="relative group">
-              {/* Outer soft glow overlay */}
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-brand-red to-brand-blue opacity-20 blur-md group-hover:opacity-30 transition-opacity duration-300"></div>
-
-              <div className="relative p-6 sm:p-10 rounded-2xl glass-panel border border-white/10 shadow-2xl">
+              <div className="relative p-6 sm:p-10 rounded-2xl bg-[#0A0A0C] border border-white/10 shadow-xl">
 
                 <h3 className="text-xl font-display font-bold text-white mb-8 text-left flex items-center gap-2">
                   <MessageSquare className="w-5 h-5 text-brand-blue" />
@@ -204,7 +200,7 @@ export default function ContactForm() {
                             value={formData.name}
                             onChange={handleInputChange}
                             placeholder="John Doe"
-                            className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-brand-blue/50 transition-colors"
+                            className="px-4 py-3 rounded-lg bg-transparent border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
                           />
                         </div>
 
@@ -220,7 +216,7 @@ export default function ContactForm() {
                             value={formData.email}
                             onChange={handleInputChange}
                             placeholder="johndoe@example.com"
-                            className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-brand-blue/50 transition-colors"
+                            className="px-4 py-3 rounded-lg bg-transparent border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
                           />
                         </div>
                       </div>
@@ -236,12 +232,12 @@ export default function ContactForm() {
                             name="projectType"
                             value={formData.projectType}
                             onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-lg bg-[#0e0e12] border border-white/10 text-white text-sm focus:outline-none focus:border-brand-blue/50 transition-colors appearance-none cursor-pointer"
+                            className="w-full px-4 py-3 rounded-lg bg-transparent border border-white/10 text-white text-sm focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all appearance-none cursor-pointer"
                           >
-                            <option value="Short Form Content">Short Form Content</option>
-                            <option value="Edits (movie, sports edits ,etc)">Edits (movie, sports edits ,etc)</option>
-                            <option value="Saas">Saas</option>
-                            <option value="Other">Other</option>
+                            <option value="Short Form Content" className="bg-[#121216]">Short Form Content</option>
+                            <option value="Edits (movie, sports edits ,etc)" className="bg-[#121216]">Edits (movie, sports edits ,etc)</option>
+                            <option value="Saas" className="bg-[#121216]">Saas</option>
+                            <option value="Other" className="bg-[#121216]">Other</option>
                           </select>
                           <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/40">
                             ▼
@@ -262,7 +258,7 @@ export default function ContactForm() {
                           value={formData.message}
                           onChange={handleInputChange}
                           placeholder="Describe your editing project scope, timeline, and expectations..."
-                          className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-brand-blue/50 transition-colors resize-none"
+                          className="px-4 py-3 rounded-lg bg-transparent border border-white/10 text-white placeholder-white/20 text-sm focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all resize-none"
                         ></textarea>
                       </div>
 
@@ -270,7 +266,7 @@ export default function ContactForm() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="px-6 py-4 rounded-lg bg-gradient-to-r from-brand-red to-brand-blue text-white font-bold text-sm uppercase tracking-wider transition-all hover:brightness-110 disabled:brightness-50 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-brand-red/10"
+                        className="px-6 py-4 rounded-lg bg-white text-black font-bold text-sm uppercase tracking-wider transition-all hover:bg-white/90 disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer shadow-lg"
                       >
                         {isSubmitting ? (
                           <>

@@ -179,7 +179,7 @@ export default function VideoModal({ isOpen, onClose, videoUrl, videoTitle }: Vi
                   {!isPlaying && (
                     <button 
                       onClick={togglePlay}
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 rounded-full bg-brand-red text-white shadow-lg shadow-brand-red/30 hover:scale-110 transition-all duration-200 cursor-pointer"
+                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 rounded-full bg-brand-red text-white shadow-lg shadow-white/10 hover:scale-110 transition-all duration-200 cursor-pointer"
                     >
                       <Play className="w-8 h-8 fill-current translate-x-0.5" />
                     </button>

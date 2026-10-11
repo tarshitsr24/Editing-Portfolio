@@ -263,7 +263,7 @@ export default function BeforeAfterSlider({ onOpenVideo }: BeforeAfterSliderProp
 
         {/* Large Cinematic YouTube Embed Showcase Card */}
         <div className="w-full relative group">
-          <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-brand-blue to-brand-red opacity-20 blur-md group-hover:opacity-40 transition-opacity duration-300"></div>
+          <div className="absolute -inset-1.5 rounded-2xl bg-black border border-white/20 opacity-20 blur-md group-hover:opacity-40 transition-opacity duration-300"></div>
           
           <div className="relative rounded-2xl overflow-hidden glass-panel border border-white/10 p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl">
             

@@ -80,16 +80,12 @@ export default function Hero({ onOpenVideo }: HeroProps) {
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-16 overflow-hidden bg-brand-dark"
     >
-      {/* Background glow graphics */}
-      <div className="absolute top-1/4 left-10 w-[40vw] h-[40vw] glow-blue rounded-full pointer-events-none -z-10 animate-pulse-slow"></div>
-      <div className="absolute bottom-1/4 right-10 w-[35vw] h-[35vw] glow-red rounded-full pointer-events-none -z-10 animate-pulse-slow"></div>
-
-      {/* Interactive Timeline Animation Background */}
-      <div className="absolute inset-0 w-full h-full opacity-15 pointer-events-none -z-20 overflow-hidden">
-        {/* Horizontal Tracks */}
-        <div className="absolute top-1/4 left-0 w-full h-[1px] bg-white/10"></div>
-        <div className="absolute top-2/4 left-0 w-full h-[1px] bg-white/10"></div>
-        <div className="absolute top-3/4 left-0 w-full h-[1px] bg-white/10"></div>
+      {/* Removed cluttering background glow graphics and tracks to eliminate visual clutter */}
+      <div className="absolute inset-0 w-full h-full opacity-5 pointer-events-none -z-20 overflow-hidden">
+        {/* Subtle horizontal track hints */}
+        <div className="absolute top-1/4 left-0 w-full h-[1px] bg-white/5"></div>
+        <div className="absolute top-2/4 left-0 w-full h-[1px] bg-white/5"></div>
+        <div className="absolute top-3/4 left-0 w-full h-[1px] bg-white/5"></div>
 
         {/* Video V2 track clips */}
         <div className="absolute top-[calc(25%-16px)] left-[10%] w-[15%] h-8 bg-brand-blue/30 rounded border border-brand-blue/50 flex items-center px-2">
@@ -143,24 +139,6 @@ export default function Hero({ onOpenVideo }: HeroProps) {
         </motion.div>
       </div>
 
-      {/* Floating Elements (Waveforms, Motion Icons) */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
-        <motion.div
-          animate={{ y: [0, -12, 0] }}
-          transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-          className="absolute top-1/3 right-[8%] p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md hidden md:block"
-        >
-          <Film className="w-6 h-6 text-brand-blue" />
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, 15, 0] }}
-          transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-          className="absolute bottom-1/3 left-[6%] p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md hidden md:block"
-        >
-          <Sparkles className="w-5 h-5 text-brand-red" />
-        </motion.div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col items-center text-center relative z-10">
         {/* Kicker Tagline */}
         <motion.div
@@ -178,9 +156,9 @@ export default function Hero({ onOpenVideo }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-6xl md:text-7xl font-display font-black tracking-tight text-white max-w-4xl leading-[1.05] mb-6"
+          className="text-4xl sm:text-6xl md:text-7xl font-display font-black tracking-tight text-white max-w-4xl leading-[1.05] mb-6 uppercase"
         >
-          Bringing Stories to <span className="text-gradient-red-blue">Life</span> Through Editing
+          Bringing Stories to Life
         </motion.h1>
 
         {/* Subheading */}
@@ -202,13 +180,13 @@ export default function Hero({ onOpenVideo }: HeroProps) {
         >
           <button
             onClick={handleScrollToPortfolio}
-            className="px-8 py-4 rounded-xl font-bold bg-white text-brand-dark hover:bg-brand-blue hover:text-brand-dark transition-all duration-300 shadow-xl shadow-white/5 hover:shadow-brand-blue/20 hover:scale-103 cursor-pointer"
+            className="px-8 py-4 rounded-full font-bold bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-xl cursor-pointer"
           >
             View My Work
           </button>
           <button
             onClick={handleScrollToContact}
-            className="px-8 py-4 rounded-xl font-bold bg-brand-gray-dark border border-white/10 hover:border-brand-red text-white hover:bg-brand-red/10 transition-all duration-300 hover:scale-103 cursor-pointer"
+            className="px-8 py-4 rounded-full font-bold bg-transparent border border-white/20 text-white hover:bg-white/10 transition-all duration-300 cursor-pointer"
           >
             Contact Me
           </button>
@@ -222,7 +200,7 @@ export default function Hero({ onOpenVideo }: HeroProps) {
           className="w-full max-w-4xl relative group"
         >
           {/* Glowing frame borders */}
-          <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-brand-red to-brand-blue opacity-30 blur-md group-hover:opacity-60 transition-opacity duration-500"></div>
+          <div className="absolute -inset-1 rounded-2xl bg-white opacity-5 blur-md group-hover:opacity-10 transition-opacity duration-500"></div>
 
           {/* Showreel Card Container */}
           <div 
@@ -271,7 +249,7 @@ export default function Hero({ onOpenVideo }: HeroProps) {
                       e.stopPropagation();
                       togglePlay();
                     }}
-                    className="p-4 sm:p-5 rounded-full bg-brand-red hover:bg-brand-red/90 text-white shadow-lg shadow-brand-red/35 hover:scale-110 transition-all duration-200 cursor-pointer pointer-events-auto"
+                    className="p-4 sm:p-5 rounded-full bg-brand-red hover:bg-brand-red/90 text-white shadow-lg shadow-white/10 hover:scale-110 transition-all duration-200 cursor-pointer pointer-events-auto"
                     aria-label="Play video"
                   >
                     <Play className="w-6 h-6 sm:w-8 sm:h-8 fill-current translate-x-0.5" />

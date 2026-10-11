@@ -1,16 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Syne, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const syne = Syne({
+  variable: "--font-syncopate", // Keep the CSS variable name to minimize refactoring needs or change it, but it's easier to keep
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-inter", // Keep the CSS variable name 
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
@@ -48,9 +48,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${inter.variable} h-full antialiased`}
+      className={`${syne.variable} ${plusJakarta.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-brand-dark text-white selection:bg-brand-blue/30 selection:text-brand-blue">
+      <body className="min-h-full flex flex-col font-sans bg-brand-dark text-brand-white selection:bg-brand-white selection:text-brand-dark">
         {children}
       </body>
     </html>

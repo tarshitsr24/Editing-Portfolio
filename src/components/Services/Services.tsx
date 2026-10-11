@@ -67,8 +67,7 @@ export default function Services() {
 
   return (
     <section id="services" className="relative py-24 md:py-32 bg-black overflow-hidden border-b border-white/5">
-      {/* Background glow graphics */}
-      <div className="absolute top-1/3 right-0 w-[40vw] h-[40vw] glow-blue rounded-full pointer-events-none -z-10 opacity-15"></div>
+      {/* Background glow removed for cleaner aesthetic */}
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
@@ -96,7 +95,8 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="p-6 sm:p-8 rounded-xl glass-panel border border-white/10 hover:border-brand-blue/30 transition-all duration-300 group flex flex-col justify-between hover:bg-white/7"
+                onClick={() => handleServiceSelect(service.title)}
+                className="p-6 sm:p-8 rounded-xl glass-panel border border-white/10 hover:border-brand-blue/30 transition-all duration-300 group flex flex-col justify-between hover:bg-white/5 cursor-pointer glass-panel-hover"
               >
                 <div>
                   {/* Icon & Tag */}
@@ -118,17 +118,23 @@ export default function Services() {
                   </p>
                 </div>
 
-                {/* CTA Button */}
-                <button
-                  onClick={() => handleServiceSelect(service.title)}
-                  className="mt-8 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-red hover:text-white transition-colors cursor-pointer group-hover:translate-x-1 duration-200 w-fit"
-                >
-                  <span>Book Service</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+
               </motion.div>
             );
           })}
+        </div>
+
+        {/* Unified Bottom CTA */}
+        <div className="mt-16 flex justify-center w-full">
+          <button
+            onClick={() => {
+              document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="px-8 py-4 rounded-full font-bold bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-xl cursor-pointer flex items-center gap-2"
+          >
+            <span>Book a Project</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
 
       </div>
